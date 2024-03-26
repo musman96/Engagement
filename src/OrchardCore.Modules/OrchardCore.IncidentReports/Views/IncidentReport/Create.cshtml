@@ -1,0 +1,106 @@
+
+@model IncidentReportViewModel
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="~/OrchardCore.IncidentReports/styles/style.css" />
+<zone Name="Title"><h1>@RenderTitleSegments(T["Create Incident Report"])</h1></zone>
+
+<div asp-validation-summary="ModelOnly"></div>
+<form asp-action="Create" method="post" class="no-multisubmit">
+    <div class="form-group">
+        <label for="formNumber">Incident Report Form No:</label>
+        <input type="text" class="form-control" asp-for="IncidentNo" placeholder="Enter form number"/>
+        <span asp-validation-for="IncidentNo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="incidentDate">Date:</label>
+        <input type="date" asp-for="IncidentDate" class="form-control" />
+        <span asp-validation-for="IncidentDate" class="text-danger"></span>
+    </div>
+    <!-- Type of Incident -->
+    <div class="form-group">
+        <label for="incidentType">Type of Incident:</label>
+        <select class="form-control" asp-for="Type">
+            <option>Environmental Incident</option>
+            <option>Health & Safety Incident</option>
+            <!-- Add more options as needed -->
+        </select>
+    </div>
+    <!-- Description of Incident -->
+    <div class="form-group">
+        <label for="incidentDescription">Description:</label>
+        <textarea class="form-control" asp-for="TypeDescription" rows="3"></textarea>
+    </div>
+    <!-- Department/Branch -->
+    <div class="form-group">
+        <label for="department">Department/Branch:</label>
+        <input type="text" class="form-control" asp-for="Department" placeholder="Enter department or branch">
+    </div>
+    <!-- Name of Person Involved -->
+    <div class="form-group">
+        <label for="personName">Name of Person Involved:</label>
+        <input type="text" class="form-control" asp-for="NameofPersonInvolved" placeholder="Enter name">
+    </div>
+    <!-- Occupation -->
+    <div class="form-group">
+        <label for="occupation">Occupation:</label>
+        <input type="text" class="form-control" asp-for="Occupation" placeholder="Enter occupation">
+    </div>
+    <!-- Working at -->
+    <div class="form-group">
+        <label for="workingAt">Working at:</label>
+        <input type="text" class="form-control" asp-for="WorkLocation" placeholder="Enter work location">
+    </div>
+    <!-- Part of Injury on Body -->
+    <div class="form-group">
+        <label for="injuryPart">Part of Injury on Body:</label>
+        <input type="text" class="form-control" asp-for="InjuredPart" placeholder="Enter injured body part">
+    </div>
+    <!-- Type of Injury -->
+    <div class="form-group">
+        <label for="injuryType">Type of Injury:</label>
+        <input type="text" class="form-control" asp-for="InjuryType" placeholder="Enter type of injury">
+    </div>
+    <!-- If Fatal - Describe -->
+    <div class="form-group">
+        <label for="fatalDescription">If Fatal - Describe:</label>
+        <textarea class="form-control" asp-for="FatalDescription" rows="2"></textarea>
+    </div>
+    <!-- First Aid Details -->
+    <div class="form-group">
+        <label for="firstAidDetails">First Aid Details:</label>
+        <textarea class="form-control" asp-for="FirstAidDetails" rows="2"></textarea>
+    </div>
+    <!-- Facts Behind Incident -->
+    <div class="form-group">
+        <label for="factsBehind">Facts Behind Incident:</label>
+        <textarea class="form-control" asp-for="FactsBehindIncident" rows="3"></textarea>
+    </div>
+    <!-- Root Cause -->
+    <div class="form-group">
+        <label for="rootCause">Root Cause:</label>
+        <textarea class="form-control" asp-for="RooCause" rows="3"></textarea>
+    </div>
+    <!-- Corrective/Preventive Action -->
+    <div class="form-group">
+        <label for="correctiveAction">Corrective/Preventive Action:</label>
+        <textarea class="form-control" asp-for="CorrectiveAction" rows="3"></textarea>
+    </div>
+    <!-- Report Prepared By -->
+    <div class="form-group">
+        <label for="reportPreparedBy">Report Prepared By:</label>
+        <input type="text" class="form-control" asp-for="ReportedBy" placeholder="Enter preparer's name">
+    </div>
+    <!-- Signature and Date -->
+    <div class="form-group">
+        <label for="signatureDate">Signature and Date:</label>
+        <input type="date" class="form-control" asp-for="ReportedDate" placeholder="Enter signature and date">
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-primary create" type="submit">@T["Create"]</button>
+        <a class="btn btn-secondary cancel" role="button" asp-route-action="Index">@T["Cancel"]</a>
+    </div>
+</form>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/popper.min.js"></script>
